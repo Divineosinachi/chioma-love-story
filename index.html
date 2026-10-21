@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#180c20">
+<title>For Chioma — A Little Love Story</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+:root{--rose:#ff9ac5;--hot:#ff5fa8;--cream:#fff5fa;--muted:#efd2e1;--night:#180c20}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 15% 10%,#65304f 0%,transparent 34%),radial-gradient(ellipse at 85% 20%,#4b2447 0%,transparent 32%),radial-gradient(ellipse at 50% 0%,#51203f 0%,#26122d 43%,#100a19 100%);color:var(--cream);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+#stars,#petals,#confetti{position:fixed;inset:0;overflow:hidden;pointer-events:none}
+.star{position:absolute;border-radius:50%;background:#fff;opacity:.5;animation:twinkle 2.8s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:.12;transform:scale(.55)}}
+.petal{position:absolute;top:-50px;animation:fall linear forwards;opacity:.8}
+@keyframes fall{to{transform:translateY(115vh) rotate(600deg);opacity:.1}}
+.screen{position:relative;z-index:1;min-height:100svh;padding:32px 18px;display:flex;align-items:center;justify-content:center}
+.panel{width:min(100%,650px);text-align:center;padding:clamp(26px,6vw,54px);border:1px solid #ffffff22;border-radius:30px;background:linear-gradient(145deg,#ffb7d21a,#ffffff08 55%,#ffffff05);box-shadow:0 28px 90px #0005,0 0 35px #ff83ad0d;backdrop-filter:blur(16px);animation:appear .9s ease both}
+@keyframes appear{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+.kicker{text-transform:uppercase;letter-spacing:.22em;font-size:.7rem;color:#ffc1d7;font-weight:700}
+h1,h2,.serif{font-family:'Playfair Display',Georgia,serif}
+h1{font-size:clamp(2.5rem,10vw,5.2rem);line-height:1.02;font-weight:500;margin:18px 0}
+h1 em{color:var(--rose);font-weight:500}
+h2{font-size:clamp(2rem,7vw,3.4rem);font-weight:500;line-height:1.12;margin:14px 0}
+p{line-height:1.8;color:var(--muted);font-size:1rem}
+.hero-flower{font-size:clamp(3.5rem,13vw,6rem);filter:drop-shadow(0 0 25px #ff83ad55);margin:10px 0}
+.divider{display:flex;align-items:center;gap:12px;justify-content:center;color:var(--rose);margin:24px 0}
+.divider:before,.divider:after{content:'';height:1px;width:52px;background:linear-gradient(90deg,transparent,#ff9ac5aa)}.divider:after{transform:scaleX(-1)}
+.btn{border:1px solid #ffffff30;border-radius:999px;padding:14px 23px;color:var(--cream);background:#ffffff0c;transition:transform .2s,background .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-main{border:0;color:#351126;font-weight:800;background:linear-gradient(135deg,#ffd3e2,#ff79a9);box-shadow:0 8px 28px #ff4f9140}
+.btn-main:hover{box-shadow:0 12px 34px #ff4f9166}
+.btn-row{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:24px}
+.small{font-size:.82rem;color:#cbaebe}
+.hidden{display:none!important}
+.envelope{width:130px;height:92px;position:relative;margin:28px auto 22px;background:linear-gradient(140deg,#ffb8cf,#ff6e9d);border-radius:8px;box-shadow:0 15px 40px #ff4f9130;cursor:pointer;transition:transform .3s}
+.envelope:hover{transform:translateY(-5px)}
+.envelope:before{content:'♡';position:absolute;z-index:2;left:0;right:0;top:22px;color:#a52b5d;font-size:36px}
+.envelope:after{content:'';position:absolute;inset:0;background:linear-gradient(35deg,transparent 49%,#ffe0e9 50%) left bottom/50% 100% no-repeat,linear-gradient(-35deg,transparent 49%,#ffc6d9 50%) right bottom/50% 100% no-repeat}
+.letter{max-width:490px;margin:0 auto;padding:24px 23px;text-align:left;border:1px solid #ffc4d844;border-radius:20px;background:#fff8fb0b}
+.letter p{color:#f4dce5}
+.signature{font-family:'Playfair Display',Georgia,serif;color:#ff9fbe;font-size:1.3rem;font-style:italic}
+.question{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.2rem,8vw,4rem);line-height:1.1;color:#fff0f5;margin:18px 0}
+.question em{color:var(--rose)}
+.actions{min-height:65px;position:relative;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+#noBtn{transition:transform .18s ease}
+#yesBtn{min-width:145px}
+.success-heart{font-size:5rem;animation:heartbeat 1s ease-in-out infinite;filter:drop-shadow(0 0 22px #ff4f9166)}
+@keyframes heartbeat{50%{transform:scale(1.13)}}
+.footer{margin-top:28px;font-size:.76rem;color:#c6a0b3}
+@media(max-width:420px){.panel{border-radius:24px;padding:27px 19px}.btn{padding:13px 18px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="stars" aria-hidden="true"></div><div id="petals" aria-hidden="true"></div><div id="confetti" aria-hidden="true"></div>
+
+<section class="screen" id="welcome">
+ <main class="panel">
+  <div class="kicker">A tiny universe, just for you</div>
+  <div class="hero-flower">🌹</div>
+  <p>For someone who makes an ordinary day feel a little brighter</p>
+  <h1>Chioma, <em>this is for you.</em></h1>
+  <div class="divider">✦ ♡ ✦</div>
+  <p>I've been wanting to tell you something, and I thought you deserved more than an ordinary message.</p>
+  <div class="btn-row"><button class="btn btn-main" id="beginBtn">Begin our little story ✨</button></div>
+  <div class="footer">Made with courage, care & a little bit of magic.</div>
+ </main>
+</section>
+
+<section class="screen hidden" id="letterScreen">
+ <main class="panel">
+  <div class="kicker">A letter from my heart</div>
+  <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the love letter"></div>
+  <h2 id="letterHeading">A few words for you, Chioma</h2>
+  <p id="letterHint">Tap the envelope to open your letter 💌</p>
+  <article class="letter hidden" id="letter">
+   <p>Dear Chioma,</p>
+   <p>I don't know if you realise it, but there's something about you that makes me smile. I like your presence, I enjoy the thought of getting to know you better, and I find myself wanting to make more memories with you.</p>
+   <p>I'm not promising to be perfect. I just want to be genuine with you, treat you with care, make you laugh, and see where something beautiful between us could lead.</p>
+   <p>So, there's one question I've been hoping to ask you…</p>
+   <p class="signature">Someone who thinks you're special 💗</p>
+  </article>
+  <div class="btn-row hidden" id="letterNext"><button class="btn btn-main" id="toQuestion">There's one more thing… 💞</button></div>
+ </main>
+</section>
+
+<section class="screen hidden" id="questionScreen">
+ <main class="panel">
+  <div class="kicker">The question I've been saving</div>
+  <div class="hero-flower">💗</div>
+  <p>Chioma, if you'll let me ask you something from the heart…</p>
+  <div class="question">Will you be<br><em>my girlfriend?</em></div>
+  <p>I'd love the chance to make you smile, support you, and create lovely memories together. 🌷</p>
+  <div class="divider">♡</div>
+  <div class="actions"><button class="btn btn-main" id="yesBtn">YES! 💖</button><button class="btn" id="noBtn" aria-label="No, playful button">No 🙈</button></div>
+  <div class="footer">P.S. I really hope you'll say yes. 🥹</div>
+ </main>
+</section>
+
+<section class="screen hidden" id="successScreen" aria-live="polite">
+ <main class="panel">
+  <div class="success-heart">💖</div>
+  <div class="kicker">A new chapter begins</div>
+  <h2>You've made me so happy, Chioma!</h2>
+  <p>If your answer is yes, then here's to honest conversations, shared laughter, thoughtful little moments, and getting to know each other one day at a time.</p>
+  <div class="divider">✦ ♡ ✦</div>
+  <p class="signature">This is only the beginning… 🌹</p>
+  <p class="small">With a happy heart, from someone who thinks you're special.</p>
+  <button class="btn btn-main" id="moreHearts">Send more hearts 💕</button>
+ </main>
+</section>
+
+<script>
+const $=id=>document.getElementById(id);
+const screens=['welcome','letterScreen','questionScreen','successScreen'];
+function show(id){screens.forEach(s=>$(s).classList.toggle('hidden',s!==id));window.scrollTo({top:0,behavior:'smooth'});}
+function sprinkle(container,count=40){
+ for(let i=0;i<count;i++){
+  const el=document.createElement('span');el.className='petal';el.textContent=['💗','♡','🌸','✨','💕'][Math.floor(Math.random()*5)];
+  el.style.left=Math.random()*100+'%';el.style.animationDuration=(5+Math.random()*8)+'s';el.style.animationDelay=(Math.random()*1.8)+'s';el.style.fontSize=(12+Math.random()*18)+'px';container.appendChild(el);
+  setTimeout(()=>el.remove(),14500);
+ }
+}
+for(let i=0;i<75;i++){const s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.width=s.style.height=(1+Math.random()*3)+'px';s.style.animationDelay=Math.random()*3+'s';$('stars').appendChild(s);}
+sprinkle($('petals'),28);
+$('beginBtn').onclick=()=>{show('letterScreen');};
+function openLetter(){ $('letter').classList.remove('hidden');$('letterHint').classList.add('hidden');$('letterHeading').textContent='From my heart to you 💗';$('letterNext').classList.remove('hidden');sprinkle($('petals'),15);}
+$('envelope').onclick=openLetter;$('envelope').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLetter();}};
+$('toQuestion').onclick=()=>show('questionScreen');
+const no=$('noBtn');
+function dodge(){const dx=(Math.random()*2-1)*95,dy=(Math.random()*2-1)*45;no.style.transform=`translate(${dx}px,${dy}px)`;}
+no.addEventListener('pointerenter',dodge);no.addEventListener('click',e=>{e.preventDefault();dodge();});no.addEventListener('touchstart',e=>{e.preventDefault();dodge();},{passive:false});
+$('yesBtn').onclick=()=>{show('successScreen');sprinkle($('confetti'),65);};
+$('moreHearts').onclick=()=>sprinkle($('confetti'),55);
+</script>
+</body>
+</html>
